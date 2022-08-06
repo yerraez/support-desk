@@ -8,26 +8,27 @@ import TicketItem from '../components/TicketItem'
 function Tickets() {
   const { tickets, isLoading, isSuccess } = useSelector((state) => state.tickets)
 
- console.log(tickets)
- const dispatch = useDispatch()
+  console.log("tickets", tickets)
+  const dispatch = useDispatch()
 
   useEffect(() => {
+    console.log('UseEffect linea 12')
     return () => {
 
       if (isSuccess) {
         dispatch(reset())
-
       }
     }
-  }, [dispatch, isSuccess]) 
+  }, [dispatch, isSuccess])
 
- useEffect(() => {
+  useEffect(() => {
+    console.log('UseEffect linea 23')
     dispatch(getTickets())
   }, [dispatch])
 
   if (isLoading) {
     return <Spinner />
-  }  
+  }
   return (
     <>
       <BackButton url='/' />
@@ -39,7 +40,7 @@ function Tickets() {
           <div>Status</div>
           <div></div>
         </div>
-        {tickets.lenght > 0 && tickets.map((ticket) => (
+        {tickets !== undefined && tickets.map((ticket) => (
           <TicketItem key={ticket._id} ticket={ticket} />
         ))}
       </div>
