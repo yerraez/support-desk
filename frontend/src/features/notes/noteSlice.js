@@ -35,6 +35,20 @@ reducers: {
 
 },
 extraReducers: (builder) => {
+    builder
+    .addCase(getNotes.pending, (state) => {
+        state.isLoading = true
+    })
+    .addCase(getNotes.fulfilled, (state, action) => {
+        state.isLoading = false
+        state.isSucess = true
+        state.ticket = action.payload
+    })
+    .addCase(getNotes.rejected, (state, action) => {
+        state.isLoading = false
+        state.isError = true
+        state.message = action.payload
+    })
 
 }
 
