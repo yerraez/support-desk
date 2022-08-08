@@ -12,7 +12,6 @@ function Tickets() {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    console.log('UseEffect linea 12')
     return () => {
 
       if (isSuccess) {
@@ -22,7 +21,6 @@ function Tickets() {
   }, [dispatch, isSuccess])
 
   useEffect(() => {
-    console.log('UseEffect linea 23')
     dispatch(getTickets())
   }, [dispatch])
 
