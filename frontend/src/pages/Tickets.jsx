@@ -7,8 +7,6 @@ import TicketItem from '../components/TicketItem'
 
 function Tickets() {
   const { tickets, isLoading, isSuccess } = useSelector((state) => state.tickets)
-
-  console.log("tickets", tickets)
   const dispatch = useDispatch()
 
   useEffect(() => {

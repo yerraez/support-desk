@@ -107,7 +107,25 @@ export const ticketSlice = createSlice({
         .addCase(getTickets.fulfilled, (state, action) => {
             state.isLoading = false
             state.isSucess = true
-            state.tickets = action.payload
+/*             const array_test = [
+                {
+                    createdAt: "",
+                    product: "iPad",
+                    status: "open",
+                    _id: 1,
+                },
+                {
+                    createdAt: "",
+                    product: "Mackbook",
+                    status: "open",
+                    _id: 2,
+                },
+                
+            ] */
+
+            state.tickets = action.payload.tickets
+            console.log(state.tickets)
+            
         })
         .addCase(getTickets.rejected, (state, action) => {
             state.isLoading = false
