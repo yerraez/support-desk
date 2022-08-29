@@ -124,13 +124,12 @@ export const ticketSlice = createSlice({
             ] */
 
             state.tickets = action.payload.tickets
-            console.log(state.tickets)
             
         })
         .addCase(getTickets.rejected, (state, action) => {
             state.isLoading = false
             state.isError = true
-            state.message = action.payload
+            state.message = action.payload.tickets
         })
         .addCase(getTicket.pending, (state) => {
             state.isLoading = true
@@ -138,12 +137,12 @@ export const ticketSlice = createSlice({
         .addCase(getTicket.fulfilled, (state, action) => {
             state.isLoading = false
             state.isSucess = true
-            state.ticket = action.payload
+            state.ticket = action.payload.ticket
         })
         .addCase(getTicket.rejected, (state, action) => {
             state.isLoading = false
             state.isError = true
-            state.message = action.payload
+            state.message = action.payload.ticket
         })
         .addCase(closeTicket.fulfilled, (state, action) => {
             state.isLoading = false
